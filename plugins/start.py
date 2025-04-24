@@ -510,11 +510,11 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("「ᴍᴀɪɴ ʜᴜʙ」", url="t.me/genanimeofc"),
+                    InlineKeyboardButton("「ᴍᴀɪɴ ʜᴜʙ」", url="t.me/rnk_anime"),
                 ],
                 [
-                    InlineKeyboardButton("「Hɪɴᴅɪ Aɴɪᴍᴇ」", url="t.me/Crunchyroll_Anime_India"),
-                    InlineKeyboardButton("「Mᴀɴɢᴀ」", url="t.me/Crunchyroll_Anime_India")
+                    InlineKeyboardButton("「Bᴀᴄᴋᴜᴘ Aɴɪᴍᴇ」", url="https://t.me/+OSs6PhkCe5E4NTA1"),
+                    InlineKeyboardButton("「Aɴɪᴍᴇ」", url="t.me/RNK_CHAT")
                 ],
                 [
                     InlineKeyboardButton("🛈 ᴀʙᴏᴜᴛ", callback_data="about"),
