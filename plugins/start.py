@@ -8,12 +8,14 @@ from config import *
 from database.database import *
 from pyrogram.types import InlineQuery, InlineQueryResultArticle, InputTextMessageContent
 from helper_func import encode, decode, get_messages
-
+import sys
+import io
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 # Basic logging configuration
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-logger = logging.getLogger(__name__)
-
+file_handler = logging.FileHandler("bot.log", encoding="utf-8")
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+file_handler.setFormatter(formatter)
 
 app = Client("fsubbot", api_id=APP_ID, api_hash=API_HASH, bot_token=TG_BOT_TOKEN)
 
