@@ -20,7 +20,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             )
         )
     elif data == "back":
-        await query.message.edit_text((
+        await query.message.edit_text(
             text = f"<blockquote><b>ʙᴀᴋᴀ!!! </b><b>{mention}</b>\n<b>ɪ ᴀᴍ <a href='https://t.me/TheNamiRobot'>ɴᴀᴍɪ</a>, ᴀ ꜰɪʟᴇ ꜱᴛᴏʀᴇ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ </b><b><a href='https://t.me/AnimeMonth'>𝘈𝘯𝘪𝘮𝘦𝘔𝘰𝘯𝘵𝘩</a> ᴛᴏ ꜱʜᴀʀᴇ ᴀɴɪᴍᴇ ᴛᴏ ᴀ ʟᴀʀɢᴇ ɴᴜᴍʙᴇʀ </b><b>ᴏꜰ ꜰᴀɴꜱ ᴠɪᴀ ꜱᴘᴇᴄɪᴀʟ ʟɪɴᴋꜱ...</blockquote>\n</b><blockquote><b>🇵​🇴​🇼​🇪​🇷​🇪​🇩​ 🇧​🇾​ <a href='https://t.me/RNK_Anime'>RNK Anime</a></b></blockquote>",
             disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
