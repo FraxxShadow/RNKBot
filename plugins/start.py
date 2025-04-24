@@ -122,6 +122,10 @@ def force_sub(func):
             await msg.edit_text("<code>Cᴏɴɴᴇᴄᴛɪɴɢ!!!!</code>")
             logger.info(f"User {user_id} invoked {message.command[0]} command")
             await msg.edit_text("<code>Lᴏᴀᴅɪɴɢ!</code>")
+
+            if isinstance(message.text, bytes):
+                message.text = message.text.decode('utf-8')
+            
             statuses = await check_subscription(client, user_id)
             logger.debug(f"Subscription statuses for user {user_id}: {statuses}")
 
@@ -363,7 +367,7 @@ async def channel_post(client: Client, message: Message):
             converted_id = post_message.id
             string = f"{converted_id}"
             base64_string = await encode(string)
-            link = f"https://t.me/{client.username}?start=filez{base64_string}"
+            link = f"https://t.me/{client.username}?start={base64_string}"
         
             reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Sʜᴀʀᴇ URL", url=f'https://telegram.me/share/url?url={link}')]])
         
