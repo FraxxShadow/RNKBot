@@ -407,22 +407,28 @@ async def start_command(client: Client, message: Message):
         argument = string.split("-")
         
         ids = []
-        if len(argument) == 2:
+        if len(argument) == 3:
             try:
-                start = int(argument[0])
-                end = int(argument[1])
-                ids = range(start, end + 1) if start <= end else list(range(start, end - 1, -1))
-            except Exception as e:
-                print(f"Error decoding IDs: {e}")
+                start = int(int(argument[1]) / abs(client.db_channel.id))
+                end = int(int(argument[2]) / abs(client.db_channel.id))
+            except:
                 return
-
-        elif len(argument) == 1:
+            if start <= end:
+                ids = range(start,end+1)
+            else:
+                ids = []
+                i = start
+                while True:
+                    ids.append(i)
+                    i -= 1
+                    if i < end:
+                        break
+        elif len(argument) == 2:
             try:
-                ids = [int(argument[0])]
+                ids = [int(int(argument[1]) / abs(client.db_channel.id))]
             except Exception as e:
                 print(f"Error decoding ID: {e}")
                 return
-
         temp_msg = await message.reply("<blockquote><b>Wᴀɪᴛ A Sᴇᴄ...</b></blockquote>")
         try:
             messages = await get_messages(client, ids)
