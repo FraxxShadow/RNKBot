@@ -367,7 +367,7 @@ async def channel_post(client: Client, message: Message):
             converted_id = post_message.id
             string = f"{converted_id}"
             base64_string = await encode(string)
-            link = f"https://t.me/{client.username}?start={base64_string}"
+            link = f"https://t.me/{client.username}?start=filez{base64_string}"
         
             reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Sʜᴀʀᴇ URL", url=f'https://telegram.me/share/url?url={link}')]])
         
