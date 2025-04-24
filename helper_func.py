@@ -8,16 +8,16 @@ from config import *
 from pyrogram.errors import UserNotParticipant, Forbidden, PeerIdInvalid, ChatAdminRequired
         
 async def encode(string):
-    string_bytes = string.encode("ascii")
+    string_bytes = string.encode("utf-8")  # Use utf-8 instead of ascii
     base64_bytes = base64.urlsafe_b64encode(string_bytes)
-    base64_string = (base64_bytes.decode("ascii")).strip("=")
+    base64_string = (base64_bytes.decode("utf-8")).strip("=")  # Decode using utf-8
     return base64_string
 
 async def decode(base64_string):
-    base64_string = base64_string.strip("=") # links generated before this commit will be having = sign, hence striping them to handle padding errors.
-    base64_bytes = (base64_string + "=" * (-len(base64_string) % 4)).encode("ascii")
-    string_bytes = base64.urlsafe_b64decode(base64_bytes) 
-    string = string_bytes.decode("ascii")
+    base64_string = base64_string.strip("=")  # links generated before this commit will be having = sign, hence striping them to handle padding errors.
+    base64_bytes = (base64_string + "=" * (-len(base64_string) % 4)).encode("utf-8")  # Ensure it's encoded in utf-8
+    string_bytes = base64.urlsafe_b64decode(base64_bytes)
+    string = string_bytes.decode("utf-8")  # Decode using utf-8
     return string
 
 async def get_messages(client, message_ids):
