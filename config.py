@@ -5,7 +5,7 @@ from logging.handlers import RotatingFileHandler
 settings = {
     '_id': 1,  # don't change this line only, if you do you're dying by my hand
     "SPOILER": False,  # bool write True or False
-    "FILE_AUTO_DELETE": 600,  # in seconds
+    "FILE_AUTO_DELETE": 0,  # in seconds
     "AUTO_DEL": True,  # bool write True or False
     "STICKER_ID": "CAACAgUAAyEFAASUwGgHAAIS-mgI_buDCtillVa_5WUxbaIzkO6jAAIUAgACaoQ8NozqxwvIcaGdNgQ",
     "stk_del_timer": 5, # in seconds
@@ -13,26 +13,19 @@ settings = {
 }
 
 HELP_MSG = """help msg
-"""  # shown only to admins
+"""
 
-# Bot token @Botfather
 TG_BOT_TOKEN = '7696888023:AAEI5zizXTD1xq7xAnwTYC7iET8wOnja4xI'
-# Your API ID from my.telegram.org
 APP_ID = int(os.environ.get("APP_ID", "28744454"))
 
-# Your API Hash from my.telegram.org
 API_HASH = os.environ.get("API_HASH", "debd37cef0ad1a1ce45d0be8e8c3c5e7")
 
-# Your db channel Id
 DB_CHANNEL_ID = os.environ.get("CHANNEL_ID", "-1002415067779")
 
-# NAME OF OWNER
 OWNER = os.environ.get("OWNER", "𝗘𝗥𝗔 『𝗗𝗔𝗥𝗞𝗫𝗦𝗜𝗗𝗘』 ♪")
 
-# OWNER ID
 OWNER_ID = 7086472788
 
-# SUDO: those who can edit admins in channel
 SUDO = []
 if OWNER_ID not in SUDO:
     SUDO.append(OWNER_ID)
@@ -49,9 +42,9 @@ FSUBS = [
     {'_id': -1002513795136, "CHANNEL_NAME": "𝘙𝘕𝘒 𝘈𝘕𝘐𝘔𝘌"}
 ]
 
-START_MSG = os.environ.get("START_MESSAGE","<blockquote><b>ʙᴀᴋᴀ!!! </b><b>{mention}</b>\n<b>ɪ ᴀᴍ <a href='https://t.me/TheNamiRobot'>ɴᴀᴍɪ</a>, ᴀ ꜰɪʟᴇ ꜱᴛᴏʀᴇ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ </b><b><a href='https://t.me/AnimeMonth'>𝘈𝘯𝘪𝘮𝘦𝘔𝘰𝘯𝘵𝘩</a> ᴛᴏ ꜱʜᴀʀᴇ ᴀɴɪᴍᴇ ᴛᴏ ᴀ ʟᴀʀɢᴇ ɴᴜᴍʙᴇʀ </b><b>ᴏꜰ ꜰᴀɴꜱ ᴠɪᴀ ꜱᴘᴇᴄɪᴀʟ ʟɪɴᴋꜱ...</blockquote>\n</b><blockquote><b>🇵​🇴​🇼​🇪​🇷​🇪​🇩​ 🇧​🇾​ <a href='https://t.me/RNK_Anime'>RNK Anime</a></b></blockquote>")
+START_MSG = os.environ.get("START_MESSAGE","<blockquote><b>ʙᴀᴋᴀ!!! </b><b>{mention}</b>\n<b>ɪ ᴀᴍ <a href='https://t.me/TheNamiRobot'>ɴᴀᴍɪ</a>, ᴀ ꜰɪʟᴇ ꜱᴛᴏʀᴇ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ </b><b><a href='https://t.me/AnimeMonth'>𝘈𝘯𝘪𝘮𝘦𝘔𝘰𝘯𝘵𝘩</a> ᴛᴏ ꜱʜᴀʀᴇ ᴀɴɪᴍᴇ ᴛᴏ ᴀ ʟᴀʀɢᴇ ɴᴜᴍʙᴇʀ </b><b>ᴏꜰ ꜰᴀɴꜱ ᴠɪᴀ ꜱᴘᴇᴄɪᴀʟ ʟɪɴᴋꜱ...</blockquote>\n</b><blockquote><b>Pᴏᴡᴇʀᴇᴅ ʙʏ: <a href='https://t.me/RNK_Anime'>RNK Anime</a></b></blockquote>")
 
-TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
+TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "8"))
 
 # Start message
 ADMINS = []
@@ -69,7 +62,7 @@ if OWNER_ID not in ADMINS:
 CUSTOM_CAPTION = None
 
 # Set True if you want to prevent users from forwarding files from the bot
-PROTECT_CONTENT = True if os.environ.get('PROTECT_CONTENT', "False") == "True" else False
+PROTECT_CONTENT = True if os.environ.get('PROTECT_CONTENT', "True") == "True" else False
 
 # Set true if you want to disable your Channel Posts Share button
 DISABLE_CHANNEL_BUTTON = True  # True or None
